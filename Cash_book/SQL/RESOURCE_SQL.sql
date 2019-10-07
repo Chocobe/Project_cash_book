@@ -74,6 +74,13 @@ INSERT INTO DATE_LIST(PHONE,
                VALUES('01095513439',
                       '20191005'
 );
+
+INSERT INTO DATE_LIST(PHONE,
+                      LOCAL_DATE)
+               VALUES('01095513439',
+                      '20191016'
+);
+
      
 INSERT INTO INCOME(INCOME_PHONE, 
                    INCOME_LOCAL_DATE, 
@@ -101,14 +108,41 @@ INSERT INTO OUTCOME(OUTCOME_PHONE,
                     '간식',
                     50000,
                     '스테이크는 레어');
+                    
+INSERT INTO OUTCOME(OUTCOME_PHONE,
+                    OUTCOME_LOCAL_DATE,
+                    OUTCOME_INDEX,
+                    OUTCOME_NAME,
+                    OUTCOME_AMOUNT,
+                    OUTCOME_MEMO)
+             VALUES('01095513439',
+                    '20191005',
+                    2,
+                    '간식',
+                    50000,
+                    '스테이크는 레어');                    
 
-
+INSERT INTO OUTCOME(OUTCOME_PHONE,
+                    OUTCOME_LOCAL_DATE,
+                    OUTCOME_INDEX,
+                    OUTCOME_NAME,
+                    OUTCOME_AMOUNT,
+                    OUTCOME_MEMO)
+             VALUES('01095513439',
+                    '20191005',
+                    3,
+                    '간식',
+                    50000,
+                    '스테이크는 레어');           
+                    
+                    
+                    
+                    
 -- TEST - SELECT
 SELECT * FROM MEMBER;
 SELECT * FROM DATE_LIST;
 SELECT * FROM INCOME;
 SELECT * FROM OUTCOME;
-
 
 -- TEST - DELETE
 DELETE FROM INCOME 
@@ -127,3 +161,5 @@ DELETE FROM DATE_LIST
         
 DELETE FROM MEMBER
       WHERE PHONE = '01095513439';
+      
+commit;

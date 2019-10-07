@@ -76,9 +76,9 @@ public class MemberDTO extends GetableAttributeNamesDTO {
 	@Override
 	public Map<String, CashBookType> getAttributeTypes() {
 		Map<String, CashBookType> types = new HashMap<String, CashBookType>();
-		types.put(PHONE_NAME, CashBookType.VARCHAR2);
-		types.put(NAME_NAME, CashBookType.VARCHAR2);
-		types.put(PW_NAME, CashBookType.VARCHAR2);
+		types.put(PHONE_NAME, CashBookType.STRING);
+		types.put(NAME_NAME, CashBookType.STRING);
+		types.put(PW_NAME, CashBookType.STRING);
 		
 		return types;
 	}
@@ -94,7 +94,7 @@ public class MemberDTO extends GetableAttributeNamesDTO {
 				String currentPhone = _resultSet.getString(PHONE_NAME);
 				String currentName = _resultSet.getString(NAME_NAME);
 				String currentPw = _resultSet.getString(PW_NAME);
-				
+
 				GetableAttributeNamesDTO currentDTO = 
 								new MemberDTO(currentPhone, currentName, currentPw);
 				result.add(currentDTO);

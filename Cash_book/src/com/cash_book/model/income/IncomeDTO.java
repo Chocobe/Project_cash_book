@@ -39,11 +39,11 @@ public class IncomeDTO extends GetableAttributeNamesDTO {
 	
 // 생성자
 	public IncomeDTO(String _incomePhone,
-					  String _incomeLocalDate,
-					  int _incomeIndex,
-					  String _incomeName,
-					  Money _incomeAmount,
-					  String _incomeMemo) {
+					 String _incomeLocalDate,
+					 int _incomeIndex,
+					 String _incomeName,
+					 Money _incomeAmount,
+					 String _incomeMemo) {
 		super("INCOME");
 		this.incomePhone = _incomePhone;
 		this.incomeLocalDate = _incomeLocalDate;
@@ -103,12 +103,12 @@ public class IncomeDTO extends GetableAttributeNamesDTO {
 	@Override
 	public Map<String, CashBookType> getAttributeTypes() {
 		Map<String, CashBookType> types = new HashMap<String, CashBookType>();
-		types.put(INCOME_PHONE_NAME, CashBookType.VARCHAR2);
-		types.put(INCOME_LOCAL_DATE_NAME, CashBookType.VARCHAR2);
-		types.put(INCOME_INDEX_NAME, CashBookType.NUMBER);
-		types.put(INCOME_NAME_NAME, CashBookType.VARCHAR2);
-		types.put(INCOME_AMOUNT_NAME, CashBookType.NUMBER);
-		types.put(INCOME_MEMO_NAME, CashBookType.VARCHAR2);
+		types.put(INCOME_PHONE_NAME, CashBookType.STRING);
+		types.put(INCOME_LOCAL_DATE_NAME, CashBookType.STRING);
+		types.put(INCOME_INDEX_NAME, CashBookType.INTEGER);
+		types.put(INCOME_NAME_NAME, CashBookType.STRING);
+		types.put(INCOME_AMOUNT_NAME, CashBookType.MONEY);
+		types.put(INCOME_MEMO_NAME, CashBookType.STRING);
 		
 		return types;
 	}
@@ -125,7 +125,7 @@ public class IncomeDTO extends GetableAttributeNamesDTO {
 				String currentLocalDate = _resultSet.getString(INCOME_LOCAL_DATE_NAME);
 				int currentIndex = _resultSet.getInt(INCOME_INDEX_NAME);
 				String currentName = _resultSet.getString(INCOME_NAME_NAME);
-				Money currentAmount = Money.wons(_resultSet.getString(INCOME_AMOUNT_NAME));
+				Money currentAmount = Money.wons(_resultSet.getInt(INCOME_AMOUNT_NAME));
 				String currentMemo = _resultSet.getString(INCOME_MEMO_NAME);
 				
 				GetableAttributeNamesDTO currentDTO = 
@@ -133,7 +133,7 @@ public class IncomeDTO extends GetableAttributeNamesDTO {
 											  currentLocalDate, 
 											  currentIndex, 
 											  currentName, 
-											  currentAmount, 
+											  currentAmount,
 											  currentMemo);
 				result.add(currentDTO);
 			}

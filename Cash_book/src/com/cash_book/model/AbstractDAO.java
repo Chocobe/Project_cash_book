@@ -27,4 +27,12 @@ public abstract class AbstractDAO {
 	
 // DELETE
 	abstract public boolean delete(GetableAttributeNamesDTO _dto);
+	
+// getter tupleCount
+	abstract public int getTupleCount(GetableAttributeNamesDTO _dto);
+	
+	// getter tupleCount_SQL
+	protected String getTupleCount_SQL(String _sql) {
+		return _sql.replace("*", "COUNT(*)");		
+	}
 }

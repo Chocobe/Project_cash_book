@@ -40,18 +40,32 @@ public class OutcomeDTO extends GetableAttributeNamesDTO {
 // 생성자 
 	public OutcomeDTO(String _outcomePhone,
 					   String _outcomeLocalDate,
-					   int _outcomeIndex,
+					   String _outcomeIndex,
 					   String _outcomeName,
-					   Money _outcomeAmount,
+					   String _outcomeAmount,
 					   String _outcomeMemo) {
 		super("OUTCOME");
 		this.outcomePhone = _outcomePhone;
 		this.outcomeLocalDate = _outcomeLocalDate;
-		this.outcomeIndex = _outcomeIndex;
+		
+		if(_outcomeIndex == null || _outcomeIndex.equals("0") || _outcomeIndex.equals("")) {
+			this.outcomeIndex = 0;
+			
+		} else {
+			this.outcomeIndex = Integer.parseInt(_outcomeIndex);
+		}
+		
 		this.outcomeName = _outcomeName;
-		this.outcomeAmount = _outcomeAmount;
+		
+		if(_outcomeAmount == null || _outcomeAmount.equals("0") || _outcomeAmount.equals("")) {
+			this.outcomeAmount = Money.ZERO;
+			
+		} else {
+			this.outcomeAmount = Money.wons(_outcomeAmount);
+		}
+		
 		this.outcomeMemo = _outcomeMemo;
-	}
+	}	
 	
 	
 // getter values for List<String>
@@ -102,12 +116,12 @@ public class OutcomeDTO extends GetableAttributeNamesDTO {
 	@Override
 	public Map<String, CashBookType> getAttributeTypes() {
 		Map<String, CashBookType> types = new HashMap<String, CashBookType>();
-		types.put(OUTCOME_PHONE_NAME, CashBookType.VARCHAR2);
-		types.put(OUTCOME_LOCAL_DATE_NAME, CashBookType.VARCHAR2);
-		types.put(OUTCOME_INDEX_NAME, CashBookType.NUMBER);
-		types.put(OUTCOME_NAME_NAME, CashBookType.VARCHAR2);
-		types.put(OUTCOME_AMOUNT_NAME, CashBookType.NUMBER);
-		types.put(OUTCOME_MEMO_NAME, CashBookType.VARCHAR2);
+		types.put(OUTCOME_PHONE_NAME, CashBookType.STRING);
+		types.put(OUTCOME_LOCAL_DATE_NAME, CashBookType.STRING);
+		types.put(OUTCOME_INDEX_NAME, CashBookType.INTEGER);
+		types.put(OUTCOME_NAME_NAME, CashBookType.STRING);
+		types.put(OUTCOME_AMOUNT_NAME, CashBookType.MONEY);
+		types.put(OUTCOME_MEMO_NAME, CashBookType.STRING);
 		
 		return types;
 	}
@@ -129,9 +143,9 @@ public class OutcomeDTO extends GetableAttributeNamesDTO {
 				GetableAttributeNamesDTO currentDTO = 
 								new OutcomeDTO(currentPhone, 
 											   currentLocalDate, 
-											   currentIndex, 
+											   String.valueOf(currentIndex), 
 											   currentName, 
-											   currentAmount, 
+											   currentAmount.toString(), 
 											   currentMemo);
 				result.add(currentDTO);
 			}

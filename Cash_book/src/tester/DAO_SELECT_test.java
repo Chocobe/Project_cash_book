@@ -6,21 +6,26 @@ import java.util.Map;
 
 import com.cash_book.model.CashBookDAO;
 import com.cash_book.model.GetableAttributeNamesDTO;
+import com.cash_book.model.Money;
 import com.cash_book.model.dateList.DateListDTO;
 import com.cash_book.model.dbConnection.DBConnection;
 import com.cash_book.model.income.IncomeDTO;
 import com.cash_book.model.member.MemberDTO;
+import com.cash_book.model.outcome.OutcomeDTO;
 
-public class DTO_test {
+public class DAO_SELECT_test {
 	public static void main(String[] args) {
 		CashBookDAO dao = new CashBookDAO(DBConnection.getConnection());
-
+		
+		
 		// MemberDTO Test
 		System.out.println("\n\n*** MemberDTO Test ***");
 		
-		GetableAttributeNamesDTO memberDTO = new MemberDTO("", "CHOCOBE", "");
+		GetableAttributeNamesDTO memberDTO = new MemberDTO("01095513439", "CHOCOBE", "COFFEE");		
+		
 		List<GetableAttributeNamesDTO> memberResult = dao.select(memberDTO);
 		Iterator<GetableAttributeNamesDTO> iteratorMemberDTO = memberResult.iterator();
+		
 		while(iteratorMemberDTO.hasNext()) {
 			GetableAttributeNamesDTO currentDTO = iteratorMemberDTO.next();
 			Map<String, String> currentValues = currentDTO.getAttributeValues();
@@ -37,6 +42,7 @@ public class DTO_test {
 		GetableAttributeNamesDTO dateListDTO = new DateListDTO("01095513439", "20191005");
 		List<GetableAttributeNamesDTO> dateListResult = dao.select(dateListDTO);
 		Iterator<GetableAttributeNamesDTO> iteratorDateListDTO = dateListResult.iterator();
+		
 		while(iteratorDateListDTO.hasNext()) {
 			GetableAttributeNamesDTO currentDTO = iteratorDateListDTO.next();
 			Map<String, String> currentValues = currentDTO.getAttributeValues();
@@ -49,8 +55,44 @@ public class DTO_test {
 		// IncomeDTO Test
 		System.out.println("\n\n*** IncomeDTO Test ***");
 		
+		GetableAttributeNamesDTO incomeDTO = new IncomeDTO("01095513439", 
+														   "20191005", 
+														   1, 
+														   "월급", 
+														   Money.wons(6000), 
+														   "US 딸라");
+		List<GetableAttributeNamesDTO> incomeResult = dao.select(incomeDTO);
+		Iterator<GetableAttributeNamesDTO> iteratorIncomeDTO = incomeResult.iterator();
+		
+		while(iteratorIncomeDTO.hasNext()) {
+			GetableAttributeNamesDTO currentDTO = iteratorIncomeDTO.next();
+			Map<String, String> currentValues = currentDTO.getAttributeValues();
+			
+			currentValues.forEach((key, value) -> {
+				System.out.println("[IncomeDTO] : <" + key + ", " + value + ">");
+			});
+		}
 		
 		
-		// OutcomeDTO Test		
+		// OutcomeDTO Test
+		System.out.println("\n\n*** OutcomeDTO Test ***");
+		
+		GetableAttributeNamesDTO outcomeDTO = new OutcomeDTO("01095513439", 
+															 "20191005", 
+															 "1", 
+															 "간식", 
+															 "50000", 
+															 "스테이크는 레어");
+		List<GetableAttributeNamesDTO> outcomeResult = dao.select(outcomeDTO);
+		Iterator<GetableAttributeNamesDTO> iteratorOutcomeDTO = outcomeResult.iterator();
+		
+		while(iteratorOutcomeDTO.hasNext()) {
+			GetableAttributeNamesDTO currentDTO = iteratorOutcomeDTO.next();
+			Map<String, String> currentValues = currentDTO.getAttributeValues();
+			
+			currentValues.forEach((key, value) -> {
+				System.out.println("[OutcomeDTO] : <" + key + ", " + value + ">");
+			});
+		}
 	}
 }

@@ -69,8 +69,8 @@ public class DateListDTO extends GetableAttributeNamesDTO {
 	@Override
 	public Map<String, CashBookType> getAttributeTypes() {
 		Map<String, CashBookType> values = new HashMap<String, CashBookType>();
-		values.put(PHONE_NAME, CashBookType.VARCHAR2);
-		values.put(LOCAL_DATE_NAME, CashBookType.VARCHAR2);
+		values.put(PHONE_NAME, CashBookType.STRING);
+		values.put(LOCAL_DATE_NAME, CashBookType.STRING);
 		
 		return values;
 	}
