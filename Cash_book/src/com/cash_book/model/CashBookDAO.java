@@ -25,7 +25,7 @@ public class CashBookDAO extends AbstractDAO {
 	@Override
 	public List<GetableAttributeNamesDTO> select(GetableAttributeNamesDTO _dto) {
 		String sql = "SELECT * FROM " + _dto.getTableName();
-
+		
 		Map<String, String> values = _dto.getAttributeValues();
 		Map<String, CashBookType> types = _dto.getAttributeTypes();
 		
@@ -64,8 +64,11 @@ public class CashBookDAO extends AbstractDAO {
 		while(iterator.hasNext()) {
 			String currentKey = iterator.next();
 			String currentValue = _conditions.get(currentKey);
+
+			if(currentValue == null || currentValue == "") {
+				continue;
 			
-			if(currentValue != null || currentValue != "") {
+			} else {
 				switch(_types.get(currentKey)) {
 				case VARCHAR2:
 					sql = sql.concat(" AND " + currentKey + " = '" + currentValue + "'");
@@ -77,7 +80,7 @@ public class CashBookDAO extends AbstractDAO {
 				}
 			}
 		}
-		
+
 		sql = sql.replaceFirst("AND", "WHERE");
 		return sql;
 	}

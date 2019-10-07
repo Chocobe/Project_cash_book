@@ -89,7 +89,7 @@ public class MemberDTO extends GetableAttributeNamesDTO {
 	public List<GetableAttributeNamesDTO> getResult(ResultSet _resultSet) {
 		List<GetableAttributeNamesDTO> result = new ArrayList<GetableAttributeNamesDTO>();
 		
-		try {
+		try {			
 			while(_resultSet.next()) {
 				String currentPhone = _resultSet.getString(PHONE_NAME);
 				String currentName = _resultSet.getString(NAME_NAME);

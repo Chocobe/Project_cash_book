@@ -18,7 +18,7 @@ public class DBConnection {
 	
 	static {
 		URL = "jdbc:oracle:thin:@localhost:1521:orcl";
-		USER = "cashBook";
+		USER = "CashBook";
 		PW = "tiger";
 		
 		initConnector();
@@ -39,7 +39,7 @@ public class DBConnection {
 			
 			connection = dataSource.getConnection();
 			
-			System.out.println("** " + USER + " 계정 접속 완료 **");
+//			System.out.println("** " + USER + " 계정 접속 완료 **");
 			
 		} catch(SQLException e) {
 			System.out.println("접속에러 : " + e.getMessage());
@@ -59,7 +59,7 @@ public class DBConnection {
 		if(connection != null) {
 			try {
 				connection.close();
-				System.out.println("Connection 해제 완료");
+//				System.out.println("Connection 해제 완료");
 				
 			} catch(SQLException e) {
 				System.out.println("Connection 해제 에러 : " + e.getMessage());
@@ -72,7 +72,7 @@ public class DBConnection {
 		if(statement != null) {
 			try {
 				statement.close();
-				System.out.println("Statement 해제 완료");
+//				System.out.println("Statement 해제 완료");
 				
 			} catch(SQLException e) {
 				System.out.println("Statement 해제 에러 : " + e.getMessage());
@@ -85,7 +85,7 @@ public class DBConnection {
 		if(preparedStatement != null) {
 			try {
 				preparedStatement.close();
-				System.out.println("PreparedStatement 해제 완료");
+//				System.out.println("PreparedStatement 해제 완료");
 				
 			} catch(SQLException e) {
 				System.out.println("PreparedStatement 해제 에러 : " + e.getMessage());
@@ -98,7 +98,7 @@ public class DBConnection {
 		if(resultSet != null) {
 			try {
 				resultSet.close();
-				System.out.println("ResultSet 해제 완료");
+//				System.out.println("ResultSet 해제 완료");
 				
 			} catch(SQLException e) {
 				System.out.println("ResultSet 해제 에러 : " + e.getMessage());
