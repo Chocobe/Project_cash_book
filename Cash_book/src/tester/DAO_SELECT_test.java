@@ -6,7 +6,6 @@ import java.util.Map;
 
 import com.cash_book.model.CashBookDAO;
 import com.cash_book.model.GetableAttributeNamesDTO;
-import com.cash_book.model.Money;
 import com.cash_book.model.dateList.DateListDTO;
 import com.cash_book.model.dbConnection.DBConnection;
 import com.cash_book.model.income.IncomeDTO;
@@ -57,10 +56,9 @@ public class DAO_SELECT_test {
 		
 		GetableAttributeNamesDTO incomeDTO = new IncomeDTO("01095513439", 
 														   "20191005", 
-														   1, 
-														   "월급", 
-														   Money.wons(6000), 
-														   "US 딸라");
+														   null, 
+														   null ,
+														   null);
 		List<GetableAttributeNamesDTO> incomeResult = dao.select(incomeDTO);
 		Iterator<GetableAttributeNamesDTO> iteratorIncomeDTO = incomeResult.iterator();
 		
@@ -79,10 +77,9 @@ public class DAO_SELECT_test {
 		
 		GetableAttributeNamesDTO outcomeDTO = new OutcomeDTO("01095513439", 
 															 "20191005", 
-															 "1", 
-															 "간식", 
-															 "50000", 
-															 "스테이크는 레어");
+															 null, 
+															 null, 
+															 null);
 		List<GetableAttributeNamesDTO> outcomeResult = dao.select(outcomeDTO);
 		Iterator<GetableAttributeNamesDTO> iteratorOutcomeDTO = outcomeResult.iterator();
 		

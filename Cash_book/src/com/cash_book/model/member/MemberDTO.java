@@ -30,9 +30,9 @@ public class MemberDTO extends GetableAttributeNamesDTO {
 // 생성자
 	public MemberDTO(String _phone, String _name, String _pw) {
 		super("MEMBER");
-		this.phone = _phone;
-		this.name = _name;
-		this.pw = _pw;
+		this.phone = checkStringValue(_phone);
+		this.name = checkStringValue(_name);
+		this.pw = checkStringValue(_pw);
 	}
 	
 	

@@ -160,14 +160,7 @@ public class CashBookDAO extends AbstractDAO {
 		
 		return sql;
 	}
-	
-	
-// DELETE
-	public boolean delete(GetableAttributeNamesDTO _dto) {
-		
-		return true;
-	}
-	
+
 	
 // get tupleCount
 	public int getTupleCount(GetableAttributeNamesDTO _dto) {

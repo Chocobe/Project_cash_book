@@ -25,14 +25,12 @@ DESC DATE_LIST;
 CREATE TABLE INCOME(
     INCOME_PHONE        VARCHAR2(11),
     INCOME_LOCAL_DATE   VARCHAR2(8),
-    INCOME_INDEX        NUMBER(4),
     INCOME_NAME         VARCHAR2(50)    NOT NULL,
     INCOME_AMOUNT       NUMBER(11)      NOT NULL,
     INCOME_MEMO         VARCHAR2(100),
     
     CONSTRAINT INCOME_FK FOREIGN KEY(INCOME_PHONE, INCOME_LOCAL_DATE) 
-                          REFERENCES DATE_LIST(PHONE, LOCAL_DATE),
-    CONSTRAINT INCOME_PK PRIMARY KEY(INCOME_PHONE, INCOME_LOCAL_DATE, INCOME_INDEX)
+                          REFERENCES DATE_LIST(PHONE, LOCAL_DATE)
 );
 DESC INCOME;
 
@@ -41,14 +39,12 @@ DESC INCOME;
 CREATE TABLE OUTCOME(
     OUTCOME_PHONE       VARCHAR2(11),
     OUTCOME_LOCAL_DATE  VARCHAR2(8),
-    OUTCOME_INDEX       NUMBER(4),
     OUTCOME_NAME        VARCHAR2(50)    NOT NULL,
     OUTCOME_AMOUNT      NUMBER(11)      NOT NULL,
     OUTCOME_MEMO        VARCHAR2(100),
     
     CONSTRAINT OUTCOME_FK FOREIGN KEY(OUTCOME_PHONE, OUTCOME_LOCAL_DATE)
-                           REFERENCES DATE_LIST(PHONE, LOCAL_DATE),
-    CONSTRAINT OUTCOME_PK PRIMARY KEY(OUTCOME_PHONE, OUTCOME_LOCAL_DATE, OUTCOME_INDEX)
+                           REFERENCES DATE_LIST(PHONE, LOCAL_DATE)
 );
 DESC OUTCOME;
 
@@ -83,14 +79,12 @@ INSERT INTO DATE_LIST(PHONE,
 
      
 INSERT INTO INCOME(INCOME_PHONE, 
-                   INCOME_LOCAL_DATE, 
-                   INCOME_INDEX, 
+                   INCOME_LOCAL_DATE,  
                    INCOME_NAME, 
                    INCOME_AMOUNT, 
                    INCOME_MEMO)
             VALUES('01095513439',
                    '20191005',
-                   1, 
                    '월급', 
                    6000, 
                    'US 딸라');
@@ -98,39 +92,33 @@ INSERT INTO INCOME(INCOME_PHONE,
                    
 INSERT INTO OUTCOME(OUTCOME_PHONE,
                     OUTCOME_LOCAL_DATE,
-                    OUTCOME_INDEX,
                     OUTCOME_NAME,
                     OUTCOME_AMOUNT,
                     OUTCOME_MEMO)
              VALUES('01095513439',
                     '20191005',
-                    1,
                     '간식',
                     50000,
                     '스테이크는 레어');
                     
 INSERT INTO OUTCOME(OUTCOME_PHONE,
                     OUTCOME_LOCAL_DATE,
-                    OUTCOME_INDEX,
                     OUTCOME_NAME,
                     OUTCOME_AMOUNT,
                     OUTCOME_MEMO)
              VALUES('01095513439',
                     '20191005',
-                    2,
                     '간식',
                     50000,
                     '스테이크는 레어');                    
 
 INSERT INTO OUTCOME(OUTCOME_PHONE,
                     OUTCOME_LOCAL_DATE,
-                    OUTCOME_INDEX,
                     OUTCOME_NAME,
                     OUTCOME_AMOUNT,
                     OUTCOME_MEMO)
              VALUES('01095513439',
                     '20191005',
-                    3,
                     '간식',
                     50000,
                     '스테이크는 레어');           
@@ -147,13 +135,11 @@ SELECT * FROM OUTCOME;
 -- TEST - DELETE
 DELETE FROM INCOME 
       WHERE INCOME_PHONE = '01095513439'
-        AND INCOME_LOCAL_DATE = '20191005'
-        AND INCOME_INDEX = 1;
+        AND INCOME_LOCAL_DATE = '20191005';
         
 DELETE FROM OUTCOME
       WHERE OUTCOME_PHONE = '01095513439'
-        AND OUTCOME_LOCAL_DATE = '20191005'
-        AND OUTCOME_INDEX = 1;
+        AND OUTCOME_LOCAL_DATE = '20191005';
         
 DELETE FROM DATE_LIST
       WHERE PHONE = '01095513439'

@@ -27,7 +27,6 @@ public class DAO_TupleCount_test {
 															 null, 
 															 null, 
 															 null, 
-															 null, 
 															 null);
 		System.out.println(dao.getTupleCount(outcomeDTO));
 		

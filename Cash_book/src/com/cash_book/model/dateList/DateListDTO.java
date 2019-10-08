@@ -26,9 +26,9 @@ public class DateListDTO extends GetableAttributeNamesDTO {
 	
 // 생성자
 	public DateListDTO(String _phone, String _localDate) {
-		super("DATE_LIST");
-		this.phone = _phone;
-		this.localDate = _localDate;
+		super("DATE_LIST");		
+		this.phone = checkStringValue(_phone);
+		this.localDate = checkStringValue(_localDate);
 	}
 
 	

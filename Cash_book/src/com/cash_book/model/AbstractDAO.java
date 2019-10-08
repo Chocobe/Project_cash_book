@@ -25,9 +25,6 @@ public abstract class AbstractDAO {
 // INSERT
 	abstract public boolean insert(GetableAttributeNamesDTO _dto);
 	
-// DELETE
-	abstract public boolean delete(GetableAttributeNamesDTO _dto);
-	
 // getter tupleCount
 	abstract public int getTupleCount(GetableAttributeNamesDTO _dto);
 	
