@@ -16,12 +16,11 @@ public abstract class GetableAttributeNamesDTO {
 	// check String value
 	protected String checkStringValue(String _val) {
 		if(_val == null || _val.equals("") || _val.equals("0")) {
-			return "";
+			return " ";
 		}
 		
 		return _val;
 	}
-
 	
 	// check Money value
 	protected Money checkMoneyValue(String _val) {

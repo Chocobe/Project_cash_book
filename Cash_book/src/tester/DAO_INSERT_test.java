@@ -29,7 +29,7 @@ public class DAO_INSERT_test {
 		// INSERT at INCOME table test
 		GetableAttributeNamesDTO incomeDTO = new IncomeDTO("01095513438", 
 														   "20191008", 
-														   "테스트_1", 
+														   null, 
 														   "10000", 
 														   "테스트_메모_1");
 		result = dao.insert(incomeDTO);
@@ -41,7 +41,7 @@ public class DAO_INSERT_test {
 															 "20191008",
 															 "outcome테스트_1",
 															 "5000",
-															 "outcome테스트_메모_1");
+															 null);
 		result = dao.insert(outcomeDTO);
 		printResult(result);
 	}
