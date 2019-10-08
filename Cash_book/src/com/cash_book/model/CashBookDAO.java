@@ -66,7 +66,7 @@ public class CashBookDAO extends AbstractDAO {
 			
 			System.out.println("[" + currentKey + ", " + currentValue + "]");
 
-			if(currentValue == null || currentValue.equals("") || currentValue.equals("0")) {
+			if(currentValue == null || currentValue.equals(" ") || currentValue.equals("0")) {
 				continue;
 			
 			} else {
