@@ -100,6 +100,8 @@ public class CashBookDAO extends AbstractDAO {
 		sql = sql.concat(createSQL_into(values, types));
 		sql = sql.concat(createSQL_values(values, types));
 		
+		System.out.println(sql);
+		
 		Statement statement = null;
 		
 		try {
@@ -152,7 +154,17 @@ public class CashBookDAO extends AbstractDAO {
 		
 		while(iterator.hasNext()) {
 			String currentKey = iterator.next();
-			sql = sql.concat(", " + values.get(currentKey));
+			
+			switch(types.get(currentKey)) {
+			case STRING:
+				sql = sql.concat(", '" + values.get(currentKey) + "'");
+				break;
+				
+			case INTEGER:
+			case MONEY:
+				sql = sql.concat(", " + values.get(currentKey));
+				break;			
+			}
 		}
 		
 		sql = sql.replaceFirst(", ", "VALUES(");

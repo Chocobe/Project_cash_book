@@ -149,3 +149,17 @@ DELETE FROM MEMBER
       WHERE PHONE = '01095513439';
       
 commit;
+
+
+SELECT * FROM MEMBER WHERE PHONE = '01095513438' AND PW = 'tiger' AND NAME = 'CHOCO';
+SELECT * FROM DATE_LIST WHERE PHONE = '01095513438' AND LOCAL_DATE = '20191008';
+SELECT * FROM INCOME WHERE INCOME_PHONE = '01095513438' 
+                       AND INCOME_MEMO = '테스트_메모_1' 
+                       AND INCOME_LOCAL_DATE = '20191008' 
+                       AND INCOME_NAME = '테스트_1' 
+                       AND INCOME_AMOUNT = 10000;
+SELECT * FROM OUTCOME WHERE OUTCOME_PHONE = '01095513438' 
+                       AND OUTCOME_NAME = 'outcome테스트_1' 
+                       AND OUTCOME_LOCAL_DATE = '20191008' 
+                       AND OUTCOME_MEMO = 'outcome테스트_메모_1' 
+                       AND OUTCOME_AMOUNT = 5000;

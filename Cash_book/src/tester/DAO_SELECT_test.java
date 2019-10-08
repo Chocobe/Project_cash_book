@@ -32,13 +32,14 @@ public class DAO_SELECT_test {
 			currentValues.forEach((key, value) -> {
 				System.out.println("[MemberDTO] : <" + key + ", " + value + ">");
 			});
+			System.out.println();
 		}
 
 		
 		// DateListDTO Test
 		System.out.println("\n\n*** DateListDTO Test ***");
 		
-		GetableAttributeNamesDTO dateListDTO = new DateListDTO("01095513439", "20191005");
+		GetableAttributeNamesDTO dateListDTO = new DateListDTO("01095513438", "20191005");
 		List<GetableAttributeNamesDTO> dateListResult = dao.select(dateListDTO);
 		Iterator<GetableAttributeNamesDTO> iteratorDateListDTO = dateListResult.iterator();
 		
@@ -49,6 +50,7 @@ public class DAO_SELECT_test {
 			currentValues.forEach((key, value) -> {
 				System.out.println("[DateListDTO] : <" + key + ", " + value + ">");
 			});
+			System.out.println();
 		}
 		
 		// IncomeDTO Test
@@ -69,6 +71,7 @@ public class DAO_SELECT_test {
 			currentValues.forEach((key, value) -> {
 				System.out.println("[IncomeDTO] : <" + key + ", " + value + ">");
 			});
+			System.out.println();
 		}
 		
 		
@@ -90,6 +93,7 @@ public class DAO_SELECT_test {
 			currentValues.forEach((key, value) -> {
 				System.out.println("[OutcomeDTO] : <" + key + ", " + value + ">");
 			});
+			System.out.println();
 		}
 	}
 }
