@@ -18,7 +18,7 @@ public class DBConnection {
 	
 	static {
 		URL = "jdbc:oracle:thin:@localhost:1521:orcl";
-		USER = "CashBook";
+		USER = "CASHBOOK";
 		PW = "tiger";
 		
 		initConnector();
